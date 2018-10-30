@@ -30,10 +30,19 @@ class Login extends Component {
     // obj.name
     // this.setState(state)
   }
+  handleSubmit = (e) => {
+    // To stop the page from refreshing
+    // We don't want to refresh cuz were making a SPA, (single page application)
+    e.preventDefault();
+
+    // this is the messanger function from the app component
+    // that will allow us to LIFT UP STATE to the parent component
+    this.props.handleLogin(this.state.username, true);
+  }
   render(){
     console.log(this.props, ' props in Login Component')
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder="username"/>
         <input type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder="password"/>
         <input type='submit' value="Login"/>
