@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 // Whatever is called index.js in the Login folder,
 // is the default file that is loaded
 import Login from './Login';
 import MainContainer from './MainContainer';
-import { Grid } from 'semantic-ui-react';
-import './App.css';
 
 class App extends Component {
   constructor(){
@@ -27,11 +24,9 @@ class App extends Component {
   render() {
     console.log(this.state)
     return (
-      <Grid textAlign='center' verticalAlign='middle'>
-        <Grid.Column style={{maxWidth: 450}}>
-            {this.state.logged ? <MainContainer username={this.state.username}/> : <Login handleLogin={this.handleLogin} />}
-        </Grid.Column>
-      </Grid>
+      <div id="App">
+        {this.state.logged ? <MainContainer username={this.state.username}/> : <Login handleLogin={this.handleLogin} />}
+      </div>
     );
   }
 }
